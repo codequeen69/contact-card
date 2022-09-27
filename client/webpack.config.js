@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'Webpack PLugin',
+        title: 'Webpack Plugin',
       })
     ],
     module: {
