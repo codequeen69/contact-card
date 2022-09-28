@@ -17,7 +17,8 @@ import './form';
 import Logo from '../images/logo.png';
 import Bear from '../images/bear.png';
 import Dog from '../images/dog.png';
-import Otter from '../images/otter-logo.jpg'
+
+
 
 //add images on load
 window.addEventListener('load', function() {
@@ -26,7 +27,7 @@ window.addEventListener('load', function() {
   document.getElementById('logo').src = Logo;
   document.getElementById('bearThumbnail').src = Bear;
   document.getElementById('dogThumbnail').src = Dog;
-  document.getElementById('logo').src = Otter;
+
 });
 
 // Form functionality
@@ -98,7 +99,14 @@ form.style.display = "block";
 
 // Toggles the Submit button so that it now Updates an existing contact instead of posting a new one
   submitBtnToUpdate = true;
-}
+};
+
+//register service worker
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+  navigator.serviceWorker.register('./service-worker.js');
+})};
 
 
   
