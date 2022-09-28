@@ -29,6 +29,26 @@ window.addEventListener('load', function() {
   document.getElementById('dogThumbnail').src = Dog;
 
 });
+//install button
+const installBtn = document.getElementById('installBtn');
+
+//before the install prompt is fired and the install button is clicked
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  installBtn.style.visibility = 'visible';
+
+  //once the install button is clicked and shows an install prompt
+  installBtn.addEventListener('click',  () => {
+    event.prompt();
+    installBtn.setAttribute('disabled', true);
+    installBtn.textContent = 'Installed!';
+  });
+});
+
+window.addEventListener('appinstalled', (event) => {
+  console.log('👍', 'appinstalled', event);
+  
+});
 
 // Form functionality
 const form = document.getElementById("formToggle");
