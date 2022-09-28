@@ -1,6 +1,9 @@
-import { initDb, getDb, postDb } from './database';
+import { initDb, getDb, postDb, deleteDb } from './database';
 import { Tooltip, Toast, Popover } from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// Import CSS files
+import "../css/index.css";
+
 import { fetchCards } from './cards';
 import { toggleForm } from './form';
 import { clearForm } from './form';
@@ -53,6 +56,15 @@ if (submitBtnToUpdate == false) {
   submitBtnToUpdate = false;
 }
 
+window.deleteCard = (e) =>{
+  //grabs the id from the button element attached to the contact card
+  let id = parseInt(e.id);
+  //delete the card
+  deleteDb(id);
+  //reload the DOM
+  fetchCards();
+};
+
 // Clear form
 clearForm();
 // Toggle form
@@ -61,7 +73,6 @@ toggleForm();
 fetchCards();
 });
 
-// Import CSS files
-import "../css/index.css";
+
   
   
